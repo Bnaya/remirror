@@ -1,6 +1,6 @@
 # @remirror/extension-placeholder
 
-> TEMPLATE_DESCRIPTION
+> **TEMPLATE_DESCRIPTION**
 
 [![Version][version]][npm] [![Weekly Downloads][downloads-badge]][npm] [![Bundled size][size-badge]][size] [![Typed Codebase][typescript]](#) [![MIT License][license]](#)
 
@@ -25,14 +25,14 @@ pnpm add @remirror/extension-placeholder@next @remirror/pm@next
 npm install @remirror/extension-placeholder@next @remirror/pm@next
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extension/placeholder`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extensions`.
 
 ## Usage
 
 The following code creates an instance of this extension.
 
 ```ts
-import { PlaceholderExtension } from 'remirror/extension/placeholder';
+import { PlaceholderExtension } from 'remirror/extensions';
 
 const extension = new PlaceholderExtension();
 ```

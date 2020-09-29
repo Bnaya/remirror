@@ -25,14 +25,14 @@ pnpm add @remirror/extension-code@next @remirror/pm@next
 npm install @remirror/extension-code@next @remirror/pm@next
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extension/code`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extensions`.
 
 ## Usage
 
 The following code creates an instance of this extension.
 
 ```ts
-import { CodeExtension } from 'remirror/extension/code';
+import { CodeExtension } from 'remirror/extensions';
 
 const extension = new CodeExtension();
 ```

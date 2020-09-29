@@ -98,7 +98,7 @@ export class EpicModePluginState {
    *
    * @param view
    */
-  init(view: EditorView) {
+  init(view: EditorView): this {
     this.view = view;
     this.container = this.options.getCanvasContainer();
 
@@ -125,7 +125,7 @@ export class EpicModePluginState {
     return this;
   }
 
-  destroy() {
+  destroy(): void {
     // Wrapped in try catch for support of hot module reloading during development
     try {
       this.canvas.remove();
@@ -133,8 +133,8 @@ export class EpicModePluginState {
       if (this.container.contains(this.canvas)) {
         this.canvas.remove();
       }
-    } catch (error) {
-      console.warn(error);
+    } catch {
+      // Do nothing in hmr
     }
   }
 

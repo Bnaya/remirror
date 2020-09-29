@@ -1,18 +1,18 @@
 import React from 'react';
-import { BoldExtension } from 'remirror/extension/bold';
-import { ItalicExtension } from 'remirror/extension/italic';
-import { UnderlineExtension } from 'remirror/extension/underline';
-import { CorePreset } from 'remirror/preset/core';
+import { BoldExtension } from 'remirror/extensions';
+import { ItalicExtension } from 'remirror/extensions';
+import { UnderlineExtension } from 'remirror/extensions';
+import { CorePreset } from 'remirror/presets';
 import {
   createReactManager,
-  RemirrorProvider,
+  Remirror,
   useExtension,
   useManager,
   usePositioner,
   usePreset,
   useRemirror,
 } from 'remirror/react';
-import { SocialEditor } from 'remirror/react/social';
+import { SocialEditor } from 'remirror/react';
 
 const exampleUsers = [
   {
@@ -70,7 +70,7 @@ export default {
   useRemirror,
   usePreset,
   usePositioner,
-  RemirrorProvider,
+  Remirror,
   createReactManager,
   CorePreset,
   BoldExtension,

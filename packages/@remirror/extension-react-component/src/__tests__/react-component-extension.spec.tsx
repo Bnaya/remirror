@@ -1,5 +1,6 @@
 import { extensionValidityTest, RemirrorTestChain } from 'jest-remirror';
 import React, { ComponentType } from 'react';
+import { createReactManager, Remirror } from 'remirror/react';
 
 import {
   ApplySchemaAttributes,
@@ -8,13 +9,7 @@ import {
   NodeExtensionSpec,
   setBlockType,
 } from '@remirror/core';
-import {
-  act,
-  createReactManager,
-  RemirrorProvider,
-  render,
-  strictRender,
-} from '@remirror/testing/react';
+import { act, render, strictRender } from '@remirror/testing/react';
 
 import { ReactComponentExtension } from '..';
 import type { NodeViewComponentProps } from '../node-view-types';
@@ -64,9 +59,9 @@ test('NodeViews are created with content', () => {
   );
 
   strictRender(
-    <RemirrorProvider manager={chain.manager}>
+    <Remirror manager={chain.manager}>
       <div />
-    </RemirrorProvider>,
+    </Remirror>,
   );
   const { doc } = chain.nodes;
   const { test: t } = chain.attributeNodes;
@@ -84,9 +79,9 @@ test('NodeViews are created without content', () => {
   );
 
   strictRender(
-    <RemirrorProvider manager={chain.manager}>
+    <Remirror manager={chain.manager}>
       <div />
-    </RemirrorProvider>,
+    </Remirror>,
   );
 
   const { doc } = chain.nodes;
@@ -105,9 +100,9 @@ test('node views can be created from commands', () => {
   );
 
   strictRender(
-    <RemirrorProvider manager={chain.manager}>
+    <Remirror manager={chain.manager}>
       <div />
-    </RemirrorProvider>,
+    </Remirror>,
   );
 
   const { doc, p } = chain.nodes;
@@ -126,9 +121,9 @@ test('simple commands', () => {
   );
 
   render(
-    <RemirrorProvider manager={chain.manager}>
+    <Remirror manager={chain.manager}>
       <div />
-    </RemirrorProvider>,
+    </Remirror>,
   );
 
   const { doc, p } = chain.nodes;

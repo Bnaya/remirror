@@ -27,19 +27,19 @@ pnpm add @remirror/preset-wysiwyg@next @remirror/pm@next
 npm install @remirror/preset-wysiwyg@next @remirror/pm@next
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/preset/wysiwyg`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/presets`.
 
 <br />
 
 ## Usage
 
-This preset is designed to be used with the `CorePreset` from `remirror/preset/core`.
+This preset is designed to be used with the `CorePreset` from `remirror/presets`.
 
 The following creates an instance of the preset.
 
 ```ts
-import { WysiwygPreset } from 'remirror/preset/wysiwyg';
+import { createCoreManager, wysiwygPreset } from 'remirror/presets';
 
-// Create the preset
-const preset = new WysiwygPreset();
+// Create a manager which contains the wysiwyg preset.
+const manager = createCoreManager(() => wysiwygPreset());
 ```

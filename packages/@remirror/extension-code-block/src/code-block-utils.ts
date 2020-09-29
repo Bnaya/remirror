@@ -319,3 +319,13 @@ export function formatCodeBlockFactory(parameter: FormatCodeBlockFactoryParamete
     return true;
   };
 }
+
+/**
+ * Get the language from the provided `code` element.
+ */
+export function getLanguageFromDom(
+  codeElement: HTMLElement,
+  preElement: HTMLElement,
+): string | undefined {
+  return codeElement.getAttribute(dataAttribute) ?? codeElement.classList[0];
+}

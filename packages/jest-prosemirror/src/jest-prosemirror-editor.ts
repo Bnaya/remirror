@@ -442,7 +442,7 @@ export function fireEventAtPosition<Schema extends EditorSchema = EditorSchema>(
  * The return type for the apply method which
  * @remarks
  *
- * @typeParam Schema - the editor schema used node.
+ * @template Schema - the editor schema used node.
  */
 export interface ApplyReturn<Schema extends EditorSchema = EditorSchema>
   extends TaggedDocParameter<Schema>,

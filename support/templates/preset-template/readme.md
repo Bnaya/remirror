@@ -1,6 +1,6 @@
 # @remirror/preset-template
 
-> TEMPLATE_DESCRIPTION
+> **TEMPLATE_DESCRIPTION**
 
 [![Version][version]][npm] [![Weekly Downloads][downloads-badge]][npm] [![Bundled size][size-badge]][size] [![Typed Codebase][typescript]](#) [![MIT License][license]](#)
 
@@ -34,8 +34,8 @@ npm install @remirror/preset-template @remirror/pm
 The following creates an instance of the preset.
 
 ```ts
-import { TemplatePreset } from '@remirror/preset-template';
+import { templatePreset } from 'remirror/presets';
 
-// Create the preset
-const preset = new TemplatePreset();
+// Create the preset which returns an array of extensions.
+const extensions = templatePreset();
 ```

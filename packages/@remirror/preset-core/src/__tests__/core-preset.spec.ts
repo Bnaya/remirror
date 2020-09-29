@@ -1,5 +1,8 @@
-import { presetValidityTest } from 'jest-remirror';
+import { GapCursorExtension } from '@remirror/extension-gap-cursor';
 
-import { CorePreset } from '../..';
+import { createCoreManager } from '../..';
 
-presetValidityTest(CorePreset);
+test('it can exclude extensions', () => {
+  const manager = createCoreManager([], { core: { excludeExtensions: ['gapCursor'] } });
+  expect(() => manager.getExtension(GapCursorExtension)).toThrow();
+});

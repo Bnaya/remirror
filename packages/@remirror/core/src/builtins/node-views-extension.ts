@@ -1,8 +1,7 @@
 import { isFunction, object } from '@remirror/core-helpers';
 import type { NodeViewMethod } from '@remirror/core-types';
 
-import { PlainExtension } from '../extension';
-import type { AnyCombinedUnion } from '../preset';
+import { AnyExtension, PlainExtension } from '../extension';
 
 /**
  * This extension allows others extension to add the `createNodeView` method
@@ -67,7 +66,7 @@ declare global {
       nodeViews?: Record<string, NodeViewMethod>;
     }
 
-    interface ManagerStore<Combined extends AnyCombinedUnion> {
+    interface ManagerStore<ExtensionUnion extends AnyExtension> {
       /**
        * The custom nodeView which can be used to replace the nodes or marks in
        * the DOM and change their browser behavior.

@@ -41,7 +41,7 @@ The following code is a guide to get you started.
 
 ```ts
 import { createDomEditor, createDomManager } from 'remirror/dom';
-import { BoldExtension } from 'remirror/extension/bold';
+import { BoldExtension } from 'remirror/extensions';
 
 const element = document.querySelector('#editor');
 const manager = createDomManager([new BoldExtension()]);

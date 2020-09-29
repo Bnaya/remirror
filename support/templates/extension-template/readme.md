@@ -1,6 +1,6 @@
 # @remirror/extension-template
 
-> TEMPLATE_DESCRIPTION
+> **TEMPLATE_DESCRIPTION**
 
 [![Version][version]][npm] [![Weekly Downloads][downloads-badge]][npm] [![Bundled size][size-badge]][size] [![Typed Codebase][typescript]](#) [![MIT License][license]](#)
 

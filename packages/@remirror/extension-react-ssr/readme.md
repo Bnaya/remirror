@@ -25,8 +25,8 @@ pnpm add @remirror/extension-react-ssr@next @remirror/pm@next
 npm install @remirror/extension-react-ssr@next @remirror/pm@next
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extension/react-ssr`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extensions`.
 
 ## Usage
 
-This is one of the **core react** extensions and is included by default in the `ReactPreset`. All exports are also available via the entry-point, `remirror/extension/react-ssr`.
+This is one of the **core react** extensions and is included by default in the `ReactPreset`. All exports are also available via the entry-point, `remirror/extensions`.

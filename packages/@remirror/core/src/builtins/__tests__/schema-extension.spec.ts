@@ -1,11 +1,8 @@
 import { schema } from 'jest-prosemirror';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
-import { values } from 'remirror/core';
-import { BlockquoteExtension } from 'remirror/extension/blockquote';
-import { BoldExtension } from 'remirror/extension/bold';
-import { HeadingExtension } from 'remirror/extension/heading';
-import { CorePreset } from 'remirror/preset/core';
-import { WysiwygPreset } from 'remirror/preset/wysiwyg';
+import { values } from 'remirror';
+import { BlockquoteExtension, BoldExtension, HeadingExtension } from 'remirror/extensions';
+import { corePreset, wysiwygPreset } from 'remirror/presets';
 
 import { SchemaExtension } from '..';
 import {
@@ -101,7 +98,7 @@ test('custom schema', () => {
 
 describe('extraAttributes', () => {
   it('should support adding attributes to `nodes`, `marks`, and `all`', () => {
-    const manager = RemirrorManager.create(() => [new WysiwygPreset(), new CorePreset()], {
+    const manager = RemirrorManager.create(() => [...wysiwygPreset(), ...corePreset()], {
       extraAttributes: [
         { identifiers: 'nodes', attributes: { totallyNodes: 'abc' } },
         { identifiers: 'marks', attributes: { totallyMarks: 'abc' } },
@@ -127,7 +124,7 @@ describe('extraAttributes', () => {
   });
 
   it('should support adding attributes by name', () => {
-    const manager = RemirrorManager.create(() => [new WysiwygPreset(), new CorePreset()], {
+    const manager = RemirrorManager.create(() => [...wysiwygPreset(), ...corePreset()], {
       extraAttributes: [
         { identifiers: ['bold'], attributes: { totallyBold: 'abc' } },
         { identifiers: ['paragraph', 'italic'], attributes: { fun: 'abc' } },
@@ -180,8 +177,8 @@ describe('extraAttributes', () => {
 
     const manager = RemirrorManager.create(
       () => [
-        new WysiwygPreset(),
-        new CorePreset(),
+        ...wysiwygPreset(),
+        ...corePreset(),
         new ThePlainExtension(),
         new TheMarkExtension(),
         new TheNodeExtension(),

@@ -4,7 +4,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { NON_BREAKING_SPACE_CHAR } from '@remirror/core';
 import { MentionAtomExtension, MentionAtomNodeAttributes } from '@remirror/extension-mention-atom';
 import { ChangeReason } from '@remirror/pm/suggest';
-import { createReactManager, RemirrorProvider } from '@remirror/react';
+import { createReactManager, Remirror } from '@remirror/react';
 import { act, DefaultEditor, render, strictRender } from '@remirror/testing/react';
 
 import { MentionAtomState, useMentionAtom } from '../use-mention-atom';
@@ -303,10 +303,10 @@ function createEditor() {
 
   const Wrapper: FC<Props> = (props) => {
     return (
-      <RemirrorProvider manager={manager} initialContent={[doc(p('Initial content ')), 'end']}>
+      <Remirror manager={manager} initialContent={[doc(p('Initial content ')), 'end']}>
         <DefaultEditor />
         <Component {...props} />
-      </RemirrorProvider>
+      </Remirror>
     );
   };
 

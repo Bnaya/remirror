@@ -81,7 +81,7 @@ export type ExtensionTags = Remirror.ExtensionTags & typeof BaseExtensionTag;
  * A method for updating the extension tags.
  *
  * ```tsx
- * import { ExtensionTag, mutateTag } from 'remirror/core';
+ * import { ExtensionTag, mutateTag } from 'remirror';
  *
  * mutateTag((tag) => {
  *   tag.SuperCustom = 'superCustom';

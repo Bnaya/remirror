@@ -208,7 +208,7 @@ export const ExtensionYjsStyledComponent: ReturnType<typeof styled.div> = styled
 
 export const presetTableStyledCss: ReturnType<typeof css> = css`
   /**
- * Styles extracted from: packages/@remirror/preset-table/src/table-styles.ts
+ * Styles extracted from: packages/@remirror/extension-tables/src/table-styles.ts
  */
   .remirror-editor .ProseMirror .tableWrapper {
     overflow-x: auto;

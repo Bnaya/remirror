@@ -5,7 +5,6 @@ import { EditorState, Plugin, PluginKey } from '@remirror/pm/state';
 
 import { extensionDecorator } from '../decorators';
 import { AnyExtension, AnyExtensionConstructor, PlainExtension } from '../extension';
-import type { AnyCombinedUnion, InferCombinedExtensions } from '../preset';
 import type { CreatePluginReturn, GetNameUnion } from '../types';
 
 /**
@@ -323,7 +322,7 @@ declare global {
       updateExtensionPlugins: (extension: AnyExtension) => void;
     }
 
-    interface ManagerStore<Combined extends AnyCombinedUnion> {
+    interface ManagerStore<ExtensionUnion extends AnyExtension> {
       /**
        * All of the plugins combined together from all sources
        */
@@ -335,7 +334,7 @@ declare global {
        *
        * @param name - the name of the extension
        */
-      getPluginState: <State>(name: GetNameUnion<InferCombinedExtensions<Combined>>) => State;
+      getPluginState: <State>(name: GetNameUnion<ExtensionUnion>) => State;
 
       /**
        * All the plugin keys available to be used by plugins.
@@ -407,7 +406,7 @@ declare global {
        * the plugin state.
        *
        * ```ts
-       * import { CreatePluginReturn } from 'remirror/core';
+       * import { CreatePluginReturn } from 'remirror';
        *
        * class MyExtension extends PlainExtension {
        *   get name() {

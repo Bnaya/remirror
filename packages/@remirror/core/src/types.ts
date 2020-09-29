@@ -57,19 +57,9 @@ export type ChangedOptions<Options extends ValidOptions> = {
 export type GetOptions<Type extends { ['~O']: unknown }> = Type['~O'];
 
 /**
- * Get the schema from a `RemirrorManager`.
- */
-export type GetSchema<Type extends { ['~Sch']: unknown }> = Type['~Sch'];
-
-/**
  * Get the commands from a `RemirrorManager`, `Extension` or `Preset`.
  */
 export type GetCommands<Type extends { ['~C']: unknown }> = Type['~C'];
-
-/**
- * Get the Extensions from a `RemirrorManager`, or `Preset`.
- */
-export type GetExtensions<Type extends { ['~E']: unknown }> = Type['~E'];
 
 /**
  * Get the helpers provided by an from a `RemirrorManager`, `Extension` or

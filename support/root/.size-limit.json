@@ -294,15 +294,15 @@
     "running": false
   },
   {
-    "name": "@remirror/preset-embed",
-    "path": "packages/@remirror/preset-embed/dist/preset-embed.browser.esm.js",
+    "name": "@remirror/extension-embed",
+    "path": "packages/@remirror/extension-embed/dist/preset-embed.browser.esm.js",
     "limit": "10 KB",
     "ignore": ["@remirror/core", "@remirror/pm"],
     "running": false
   },
   {
-    "name": "@remirror/preset-list",
-    "path": "packages/@remirror/preset-list/dist/preset-list.browser.esm.js",
+    "name": "@remirror/extension-list",
+    "path": "packages/@remirror/extension-list/dist/preset-list.browser.esm.js",
     "limit": "10 KB",
     "ignore": ["@remirror/core", "@remirror/pm"],
     "running": false
@@ -336,8 +336,8 @@
     "running": false
   },
   {
-    "name": "@remirror/preset-table",
-    "path": "packages/@remirror/preset-table/dist/preset-table.browser.esm.js",
+    "name": "@remirror/extension-tables",
+    "path": "packages/@remirror/extension-tables/dist/preset-table.browser.esm.js",
     "limit": "10 KB",
     "ignore": ["@remirror/core", "@remirror/pm"],
     "running": false
@@ -415,21 +415,6 @@
     "path": "packages/@remirror/react-utils/dist/react-utils.browser.esm.js",
     "limit": "5 KB",
     "ignore": ["@types/react", "react"],
-    "running": false
-  },
-  {
-    "name": "@remirror/react-wysiwyg",
-    "path": "packages/@remirror/react-wysiwyg/dist/react-wysiwyg.browser.esm.js",
-    "limit": "200 KB",
-    "ignore": [
-      "@remirror/core",
-      "@remirror/pm",
-      "@remirror/react",
-      "@types/react",
-      "@types/react-dom",
-      "react",
-      "react-dom"
-    ],
     "running": false
   },
   {

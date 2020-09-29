@@ -121,7 +121,7 @@ This is the setup required for **remirror** to make any internal command chainab
 The following example is how commands created in remirror are automatically chainable. It uses the shared `tr` property to accomplish this.
 
 ```ts
-import { CommandFunction, PlainExtension } from 'remirror/core';
+import { CommandFunction, PlainExtension } from 'remirror';
 
 class CustomExtension extends PlainExtension {
   get name() {

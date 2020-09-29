@@ -21,10 +21,11 @@
     "@docusaurus/plugin-ideal-image": "2.0.0-alpha.64",
     "@docusaurus/preset-classic": "2.0.0-alpha.64",
     "@docusaurus/theme-live-codeblock": "2.0.0-alpha.64",
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "@mdx-js/react": "^1.6.18",
     "@remirror/dev": "1.0.0-next.43",
     "@remirror/playground": "1.0.0-next.43",
-    "@remirror/showcase": "1.0.0-next.43",
     "clsx": "^1.1.1",
     "core-js": "^3.6.5",
     "docusaurus": "2.0.0-alpha.64",
@@ -40,7 +41,9 @@
     "@docusaurus/types": "2.0.0-alpha.64",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "@types/worker-plugin": "^4.0.0",
     "babel-plugin-dynamic-import-node": "^2.3.3",
-    "monaco-editor-webpack-plugin": "^2.0.0"
+    "monaco-editor-webpack-plugin": "^2.0.0",
+    "worker-plugin": "^5.0.0"
   }
 }

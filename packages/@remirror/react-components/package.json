@@ -24,8 +24,11 @@
   "dependencies": {
     "@babel/runtime": "^7.11.0",
     "@lingui/core": "^3.0.0-13",
+    "@react-aria/button": "^3.2.1",
+    "@react-aria/interactions": "^3.2.0",
     "linaria": "^2.0.0-rc.3",
     "multishift": "1.0.0-next.42",
+    "reakit": "^1.2.5",
     "type-fest": "^0.16.0"
   },
   "devDependencies": {

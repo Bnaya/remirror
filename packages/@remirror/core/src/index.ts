@@ -5,15 +5,16 @@ export * from '@remirror/core-utils';
 
 export type {
   BuiltinOptions,
-  IdentifierSchemaAttributes,
+  BuiltinPreset,
   Identifiers,
+  IdentifierSchemaAttributes,
   KeymapOptions,
   SuggestOptions,
   UpdatableViewProps,
 } from './builtins';
 export {
   AttributesExtension,
-  BuiltinPreset,
+  builtinPreset,
   CommandsExtension,
   HelpersExtension,
   InputRulesExtension,
@@ -25,33 +26,12 @@ export {
   SuggestExtension,
   TagsExtension,
 } from './builtins';
-
 export type { DelayedValue } from './commands';
-export { toggleMark, delayedCommand, insertText, isDelayedValue } from './commands';
-
-export type { ExtensionDecoratorOptions, PresetDecoratorOptions } from './decorators';
-export { extensionDecorator, presetDecorator } from './decorators';
-
+export { delayedCommand, insertText, isDelayedValue, toggleMark } from './commands';
+export type { ExtensionDecoratorOptions } from './decorators';
+export { extensionDecorator } from './decorators';
 export type {
-  AttributePropFunction,
-  BaseFramework,
-  BaseListenerParameter,
-  CreateStateFromContent,
-  FrameworkOutput,
-  FrameworkParameter,
-  FrameworkProps,
-  FocusType,
-  ListenerParameter,
-  PlaceholderConfig,
-  RemirrorEventListener,
-  RemirrorEventListenerParameter,
-  RemirrorGetterParameter,
-  TriggerChangeParameter,
-  UpdateStateParameter,
-} from './framework';
-export { Framework } from './framework/framework';
-
-export type {
+  ActiveFromExtensions,
   AnyExtension,
   AnyExtensionConstructor,
   AnyManagerStore,
@@ -68,15 +48,15 @@ export type {
   ExtensionConstructor,
   ExtensionConstructorParameter,
   ExtensionListParameter,
-  GetExtensionUnion,
+  GetExtensions,
   GetMarkNameUnion,
   GetNodeNameUnion,
-  GetPlainNames,
+  GetPlainNameUnion,
+  GetSchema,
   HelperNames,
   HelpersFromExtensions,
   ManagerStoreKeys,
   MapHelpers,
-  SchemaFromExtensionUnion,
   RawCommandsFromExtensions,
 } from './extension';
 export {
@@ -85,53 +65,38 @@ export {
   isMarkExtension,
   isNodeExtension,
   isPlainExtension,
-  isValidExtensionConstructor,
   MarkExtension,
   mutateDefaultExtensionOptions,
   NodeExtension,
   PlainExtension,
 } from './extension';
-
 export type {
   AddCustomHandler,
   AddHandler,
-  BaseClass,
-  BaseClassConstructor,
   CustomHandlerMethod,
   HandlerKeyOptions,
 } from './extension/base-class';
-
 export type {
-  AnyRemirrorManager,
-  GetCombined,
-  ManagerEvents,
-  RemirrorManagerParameter,
-} from './manager';
+  AttributePropFunction,
+  BaseFramework,
+  BaseListenerParameter,
+  CreateStateFromContent,
+  FocusType,
+  FrameworkOutput,
+  FrameworkParameter,
+  FrameworkProps,
+  ListenerParameter,
+  PlaceholderConfig,
+  RemirrorEventListener,
+  RemirrorEventListenerParameter,
+  RemirrorGetterParameter,
+  TriggerChangeParameter,
+  UpdateStateParameter,
+} from './framework';
+export { Framework } from './framework';
+export type { AnyRemirrorManager, CreateEditorStateParameter, ManagerEvents } from './manager';
 export { isRemirrorManager, RemirrorManager } from './manager';
-
-export type {
-  ActiveFromCombined,
-  AnyCombinedUnion,
-  AnyPreset,
-  AnyPresetConstructor,
-  ChainedFromCombined,
-  CombinedUnion,
-  CommandsFromCombined,
-  DefaultPresetOptions,
-  GetPresetUnion,
-  HelpersFromCombined,
-  InferCombinedExtensions,
-  InferCombinedPresets,
-  PresetConstructor,
-  PresetConstructorParameter,
-  PresetListParameter,
-  PresetParameter,
-  SchemaFromCombined,
-} from './preset';
-export { isPreset, isPresetConstructor, Preset } from './preset';
-
 export { editorStyles } from './styles';
-
 export type {
   BaseExtensionOptions,
   ChangedOptions,
@@ -146,11 +111,9 @@ export type {
   GetChangeOptionsReturn,
   GetCommands,
   GetConstructor,
-  GetExtensions,
   GetHelpers,
   GetNameUnion,
   GetOptions,
-  GetSchema,
   OnSetOptionsParameter,
   OptionsOfConstructor,
   PickChanged,

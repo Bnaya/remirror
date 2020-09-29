@@ -42,12 +42,6 @@ import {
 } from '../extension';
 import { throwIfNameNotUnique } from '../helpers';
 import type {
-  AnyCombinedUnion,
-  ChainedFromCombined,
-  CommandsFromCombined,
-  RawCommandsFromCombined,
-} from '../preset';
-import type {
   CommandShape,
   CreatePluginReturn,
   ExtensionCommandFunction,
@@ -258,7 +252,7 @@ export class CommandsExtension extends PlainExtension<CommandOptions> {
        * To use it, firstly define the command.
        *
        * ```ts
-       * import { CommandFunction } from 'remirror/core';
+       * import { CommandFunction } from 'remirror';
        *
        * const myCustomCommand: CommandFunction = ({ tr, dispatch }) => {
        *   dispatch?.(tr.insertText('My Custom Command'));
@@ -289,7 +283,7 @@ export class CommandsExtension extends PlainExtension<CommandOptions> {
        *
        * ```ts
        * import { joinDown } from 'prosemirror-commands';
-       * import { convertCommand } from 'remirror/core';
+       * import { convertCommand } from 'remirror';
        *
        * const MyEditorButton = () => {
        *   const { commands } = useRemirror();
@@ -968,7 +962,7 @@ const forbiddenNames = new Set(['run', 'chain', 'original', 'raw']);
 
 declare global {
   namespace Remirror {
-    interface ManagerStore<Combined extends AnyCombinedUnion> {
+    interface ManagerStore<ExtensionUnion extends AnyExtension> {
       /**
        * Enables the use of custom commands created by extensions which extend
        * the functionality of your editor in an expressive way.
@@ -985,7 +979,7 @@ declare global {
        * }
        * ```
        */
-      commands: CommandsFromCombined<Combined>;
+      commands: CommandsFromExtensions<ExtensionUnion>;
 
       /**
        * Chainable commands for composing functionality together in quaint and
@@ -1021,7 +1015,7 @@ declare global {
        *
        * The `run()` method ends the chain and dispatches the command.
        */
-      chain: ChainedFromCombined<Combined>;
+      chain: ChainedFromExtensions<ExtensionUnion>;
 
       /**
        * This object gives you access to all the commands defined by the
@@ -1034,7 +1028,7 @@ declare global {
        * function command(...args: any[]) => CommandFunction;
        * ```
        */
-      rawCommands: RawCommandsFromCombined<Combined>;
+      rawCommands: RawCommandsFromExtensions<ExtensionUnion>;
 
       /**
        * Check for a forced update in the transaction. This pulls the meta data

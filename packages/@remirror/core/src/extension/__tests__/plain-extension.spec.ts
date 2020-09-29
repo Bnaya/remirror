@@ -1,9 +1,10 @@
+import { BoldExtension } from 'remirror/extensions';
+
 import { ExtensionPriority } from '@remirror/core-constants';
 import type { Handler } from '@remirror/core-types';
-import { BoldExtension } from '@remirror/testing';
 
 import { extensionDecorator } from '../../decorators';
-import { PlainExtension } from '../extension-base';
+import { PlainExtension } from '../extension';
 
 interface TestOptions {
   onChange: Handler<() => void>;

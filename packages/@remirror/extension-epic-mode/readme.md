@@ -20,16 +20,16 @@ pnpm add @remirror/extension-epic-mode@next # pnpm
 npm install @remirror/extension-epic-mode@next # npm
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extension/epic-mode`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extensions`.
 
 ## Usage
 
 The following code sample will create a limited editor and run the available commands from this extension.
 
 ```ts
-import { ExtensionPriority, RemirrorManager } from 'remirror/core';
-import { EpicModeExtension } from 'remirror/extension/epic-mode';
-import { CorePreset } from 'remirror/preset/core';
+import { ExtensionPriority, RemirrorManager } from 'remirror';
+import { EpicModeExtension } from 'remirror/extensions';
+import { CorePreset } from 'remirror/presets';
 
 // Create the codeBlock extension
 const epicModeExtension = new EpicModeExtension();

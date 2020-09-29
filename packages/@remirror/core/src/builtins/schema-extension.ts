@@ -39,14 +39,14 @@ import { MarkSpec, NodeSpec, Schema } from '@remirror/pm/model';
 import { extensionDecorator } from '../decorators';
 import {
   AnyExtension,
+  GetExtensions,
   GetMarkNameUnion,
   GetNodeNameUnion,
+  GetSchema,
   isMarkExtension,
   isNodeExtension,
   PlainExtension,
-  SchemaFromExtensionUnion,
 } from '../extension';
-import type { AnyCombinedUnion, InferCombinedExtensions } from '../preset';
 import type { CreatePluginReturn } from '../types';
 import type { CombinedTags } from './tags-extension';
 
@@ -64,7 +64,7 @@ import type { CombinedTags } from './tags-extension';
  * In order to add extra attributes the following would work.
  *
  * ```ts
- * import { RemirrorManager } from 'remirror/core';
+ * import { RemirrorManager } from 'remirror';
  * import uuid from 'uuid';
  * import hash from 'made-up-hasher';
  *
@@ -424,9 +424,9 @@ export class SchemaExtension extends PlainExtension {
  * will be the basis for adding advanced formatting to remirror.
  *
  * ```ts
- * import { ExtensionTag } from 'remirror/core';
- * import { createCoreManager, CorePreset } from 'remirror/preset/core';
- * import { WysiwygPreset } from 'remirror/preset/wysiwyg';
+ * import { ExtensionTag } from 'remirror';
+ * import { createCoreManager, CorePreset } from 'remirror/presets';
+ * import { WysiwygPreset } from 'remirror/presets';
  *
  * const manager = createCoreManager(() => [new WysiwygPreset(), new CorePreset()], {
  *   extraAttributes: [
@@ -684,7 +684,7 @@ interface CreateSpecReturn<Type extends { group?: string | null }> {
 /**
  * Create the scheme spec for a node or mark extension.
  *
- * @typeParam Type - either a [[Mark]] or a [[ProsemirrorNode]]
+ * @template Type - either a [[Mark]] or a [[ProsemirrorNode]]
  * @param parameter - the options object [[CreateSpecParameter]]
  */
 function createSpec<Type extends { group?: string | null }>(
@@ -965,7 +965,7 @@ declare global {
        * An example is shown below.
        *
        * ```ts
-       * import { RemirrorManager } from 'remirror/core';
+       * import { RemirrorManager } from 'remirror';
        *
        * const managerSettings = {
        *   extraAttributes: [
@@ -1007,21 +1007,21 @@ declare global {
       schema?: EditorSchema;
     }
 
-    interface ManagerStore<Combined extends AnyCombinedUnion> {
+    interface ManagerStore<ExtensionUnion extends AnyExtension> {
       /**
        * The nodes to place on the schema.
        */
-      nodes: Record<GetNodeNameUnion<InferCombinedExtensions<Combined>>, NodeExtensionSpec>;
+      nodes: Record<GetNodeNameUnion<GetExtensions<ExtensionUnion>>, NodeExtensionSpec>;
 
       /**
        * The marks to be added to the schema.
        */
-      marks: Record<GetMarkNameUnion<InferCombinedExtensions<Combined>>, MarkExtensionSpec>;
+      marks: Record<GetMarkNameUnion<GetExtensions<ExtensionUnion>>, MarkExtensionSpec>;
 
       /**
        * The schema created by this extension manager.
        */
-      schema: SchemaFromExtensionUnion<InferCombinedExtensions<Combined>>;
+      schema: GetSchema<GetExtensions<ExtensionUnion>>;
     }
 
     interface MarkExtension {

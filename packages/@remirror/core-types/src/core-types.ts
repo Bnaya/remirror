@@ -64,7 +64,7 @@ export interface GetAttributesParameter {
  * - JSON object matching Prosemirror expected shape
  * - A top level ProsemirrorNode
  *
- * @typeParam Schema - the underlying editor schema.
+ * @template Schema - the underlying editor schema.
  */
 export type RemirrorContentType<Schema extends EditorSchema = EditorSchema> =
   | string
@@ -105,7 +105,7 @@ export type KeyBindingCommandFunction<Schema extends EditorSchema = EditorSchema
  * A map of keyboard bindings and their corresponding command functions (a.k.a
  * editing actions).
  *
- * @typeParam Schema - the underlying editor schema.
+ * @template Schema - the underlying editor schema.
  *
  * @remarks
  *

@@ -25,16 +25,16 @@ pnpm add @remirror/extension-emoji@next @remirror/pm@next
 npm install @remirror/extension-emoji@next @remirror/pm@next
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extension/emoji`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extensions`.
 
 ## Usage
 
 The following code sample will create a limited editor and run the available commands from this extension.
 
 ```ts
-import { ExtensionPriority, RemirrorManager } from 'remirror/core';
-import { EmojiExtension } from 'remirror/extension/emoji';
-import { CorePreset } from 'remirror/preset/core';
+import { ExtensionPriority, RemirrorManager } from 'remirror';
+import { EmojiExtension } from 'remirror/extensions';
+import { CorePreset } from 'remirror/presets';
 
 // Create the codeBlock extension
 const emojiExtension = new EmojiExtension({ supportedLanguages: [typescript, jsx] });

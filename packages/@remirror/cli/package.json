@@ -26,8 +26,11 @@
     "chalk": "^4.1.0",
     "cli-spinners": "^2.4.0",
     "clipanion": "^2.6.2",
+    "cpy": "^8.1.1",
     "dargs": "^7.0.0",
+    "execa": "^4.0.3",
     "figures": "^3.2.0",
+    "globby": "^11.0.1",
     "ink": "^3.0.6",
     "ink-link": "^2.0.0",
     "ink-multi-select": "^2.0.0",
@@ -41,7 +44,7 @@
     "rimraf": "^3.0.2",
     "terminal-link": "^2.1.1",
     "type-fest": "^0.16.0",
-    "update-notifier": "^4.1.0",
+    "update-notifier": "^5.0.0",
     "yup": "^0.29.2"
   },
   "devDependencies": {

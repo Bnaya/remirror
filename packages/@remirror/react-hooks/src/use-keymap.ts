@@ -10,15 +10,15 @@ import { useExtension } from '@remirror/react';
  *
  * ```tsx
  * import { useKeymap } from 'remirror/react/hooks/use-keymap';
- * import { RemirrorProvider, useRemirror, useManager } from 'remirror/react';
+ * import { Remirror, useRemirror, useManager } from 'remirror/react';
  *
  * const Wrapper = () => {
  *   const manager = useManager(() => []);
  *
  *   return (
- *     <RemirrorProvider manager={manager}>
+ *     <Remirror manager={manager}>
  *       <Editor />
- *     </RemirrorProvider>
+ *     </Remirror>
  *   );
  * };
  *

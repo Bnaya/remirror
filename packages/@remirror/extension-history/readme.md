@@ -25,14 +25,14 @@ pnpm add @remirror/extension-history @remirror/pm
 npm install @remirror/extension-history @remirror/pm
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extension/history`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extensions`.
 
 ## Usage
 
 The following code creates an instance of this extension.
 
 ```ts
-import { HistoryExtension } from 'remirror/extension/history';
+import { HistoryExtension } from 'remirror/extensions';
 
 const extension = new HistoryExtension();
 ```

@@ -1,6 +1,6 @@
 # @remirror/preset-react
 
-> The core preset providing the functionality you need and want.
+> The preset which provides all required `React` extensions for your editor.
 
 [![Version][version]][npm] [![Weekly Downloads][downloads-badge]][npm] [![Bundled size][size-badge]][size] [![Typed Codebase][typescript]](#) [![MIT License][license]](#)
 
@@ -27,7 +27,7 @@ pnpm add @remirror/preset-react@next @remirror/pm@next
 npm install @remirror/preset-react@next @remirror/pm@next
 ```
 
-This package is available via `remirror/preset/react` when you install `remirror`.
+This package is available via `remirror/presets` when you install `remirror`.
 
 <br />
 
@@ -40,17 +40,11 @@ This preset adds
 - Placeholder support for the editor.
 
 ```ts
-import { RemirrorManager } from 'remirror/core';
-import { CorePreset } from 'remirror/preset/core';
-import { ReactPreset } from 'remirror/preset/react';
-
-const reactPreset = new ReactPreset({ rootContent: 'block*' });
-
-// Create the preset
-const reactPreset = new ReactPreset(transformers);
+import { RemirrorManager } from 'remirror';
+import { reactPreset } from 'remirror/presets';
 
 // Create the Editor Manager with the required preset.
-const manager = RemirrorManager.create([reactPreset]);
+const manager = RemirrorManager.create(() => [...reactPreset()]);
 ```
 
-The `useManager` hook automatically includes both the `CorePreset` and the `ReactPreset` so you may never need to reference this package directly.
+The `useRemirror` hook automatically adds both the `CorePreset` and `ReactPreset` to the editor so you may never need to reference this package directly.

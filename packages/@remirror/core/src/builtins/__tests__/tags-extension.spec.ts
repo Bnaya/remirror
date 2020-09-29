@@ -5,7 +5,7 @@ import {
   ExtensionTag,
   mutateTag,
   NodeExtension,
-} from 'remirror/core';
+} from 'remirror';
 
 import { hideConsoleError } from '@remirror/testing';
 

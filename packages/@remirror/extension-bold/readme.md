@@ -22,7 +22,7 @@ pnpm add @remirror/extension-bold@next @remirror/pm@next # pnpm
 npm install @remirror/extension-bold@next @remirror/pm@next # npm
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extension/bold`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/extensions`.
 
 <br />
 
@@ -31,9 +31,9 @@ This is included by default when you install the recommended `remirror` package.
 When added to your editor it will provide the `toggleBold` command which makes the text under the cursor / or at the provided position range bold.
 
 ```ts
-import { ExtensionPriority, RemirrorManager } from 'remirror/core';
-import { BoldExtension } from 'remirror/extension/bold';
-import { CorePreset } from 'remirror/preset/core';
+import { ExtensionPriority, RemirrorManager } from 'remirror';
+import { BoldExtension } from 'remirror/extensions';
+import { CorePreset } from 'remirror/presets';
 
 // Create the bold extension
 const boldExtension = new BoldExtension({ weight: '500' });

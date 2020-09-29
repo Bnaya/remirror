@@ -2,6 +2,12 @@
 
 This folder contains the templates for new packages. When creating a new package, rather than starting from scratch you can copy the relevant folder that best describes your package use case and paste it into the relevant packages folder.
 
+The easiest way to create a new scoped package in this repo is to run the command `pnpm create:package NAME -- --description "DESCRIPTION"`. For example the following would create a package called `@remirror/extension-chill`.
+
+```bash
+pnpm create:package @remirror/extension-chill -- --description "The time to be chill."
+```
+
 When creating your own extension or preset you can follow these steps.
 
 1. Copy `support/templates/extension-template` to `packages/@remirror/extension-<name>`.

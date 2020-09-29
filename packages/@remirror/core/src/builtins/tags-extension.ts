@@ -9,15 +9,15 @@ import { includes, invariant, object, values } from '@remirror/core-helpers';
 import { extensionDecorator } from '../decorators';
 import {
   AnyExtension,
+  GetExtensions,
   GetMarkNameUnion,
   GetNodeNameUnion,
-  GetPlainNames,
+  GetPlainNameUnion,
   isMarkExtension,
   isNodeExtension,
   isPlainExtension,
   PlainExtension,
 } from '../extension';
-import type { AnyCombinedUnion } from '../preset';
 import type { GetNameUnion } from '../types';
 
 /**
@@ -194,26 +194,26 @@ declare global {
       tags?: ExtensionTagType[];
     }
 
-    interface ManagerStore<Combined extends AnyCombinedUnion> {
+    interface ManagerStore<ExtensionUnion extends AnyExtension> {
       /**
        * All the tags provided by the configured extensions.
        */
-      tags: Readonly<CombinedTags<GetNameUnion<Combined>>>;
+      tags: Readonly<CombinedTags<GetNameUnion<GetExtensions<ExtensionUnion>>>>;
 
       /**
        * All the plain extension tags provided for the editor.
        */
-      plainTags: Readonly<CombinedTags<GetPlainNames<Combined>>>;
+      plainTags: Readonly<CombinedTags<GetPlainNameUnion<GetExtensions<ExtensionUnion>>>>;
 
       /**
        * All the node extension tags provided for the editor.
        */
-      nodeTags: Readonly<CombinedTags<GetNodeNameUnion<Combined>>>;
+      nodeTags: Readonly<CombinedTags<GetNodeNameUnion<GetExtensions<ExtensionUnion>>>>;
 
       /**
        * All the mark extension tags provided for the editor.
        */
-      markTags: Readonly<CombinedTags<GetMarkNameUnion<Combined>>>;
+      markTags: Readonly<CombinedTags<GetMarkNameUnion<GetExtensions<ExtensionUnion>>>>;
     }
 
     interface ExcludeOptions {

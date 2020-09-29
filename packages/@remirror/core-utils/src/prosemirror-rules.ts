@@ -39,7 +39,7 @@ export interface BaseInputRuleParameter {
      state.
    *
    * ```ts
-   * import { nodeInputRule } from 'remirror/core';
+   * import { nodeInputRule } from 'remirror';
    *
    * nodeInputRule({
    *   type,

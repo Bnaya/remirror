@@ -75,9 +75,9 @@ No directly invoking the editor manager with `new`. Instead use one of the stati
 
 ### RMR0010
 
-> Invalid Preset Extension
+> Invalid Get Extension
 
-The user requested an invalid extension from the preset. Please check the `createExtensions` return method is returning an extension with the defined constructor.
+The user requested an invalid extension from the getExtensions method. Please check the `createExtensions` return method is returning an extension with the defined constructor.
 
 ### RMR0011
 
@@ -195,8 +195,8 @@ For example the following would trigger this error.
 
 ```tsx
 import React from 'react';
-import { BoldExtension } from 'remirror/extension/bold';
-import { CorePreset } from 'remirror/preset/core';
+import { BoldExtension } from 'remirror/extensions';
+import { CorePreset } from 'remirror/presets';
 import { RemirrorProvider, useManager } from 'remirror/react';
 
 const Editor = () => {

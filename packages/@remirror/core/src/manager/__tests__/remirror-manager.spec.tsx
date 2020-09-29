@@ -1,4 +1,6 @@
 import { createEditor, doc, p } from 'jest-prosemirror';
+import { HeadingExtension } from 'remirror/extensions';
+import { corePreset, createCoreManager } from 'remirror/presets';
 
 import { EMPTY_PARAGRAPH_NODE, ExtensionPriority, ExtensionTag } from '@remirror/core-constants';
 import type {
@@ -11,13 +13,7 @@ import type {
 import { Schema } from '@remirror/pm/model';
 import { EditorState, Plugin } from '@remirror/pm/state';
 import { EditorView } from '@remirror/pm/view';
-import {
-  CorePreset,
-  createCoreManager,
-  createFramework,
-  HeadingExtension,
-  hideConsoleError,
-} from '@remirror/testing';
+import { createFramework, hideConsoleError } from '@remirror/testing';
 
 import { NodeExtension, PlainExtension } from '../../extension';
 import { isRemirrorManager, RemirrorManager } from '../remirror-manager';
@@ -68,17 +64,13 @@ describe('Manager', () => {
 
   const dummyExtension = new DummyExtension({ priority: ExtensionPriority.Critical });
   const bigExtension = new BigExtension({ priority: ExtensionPriority.Lowest });
-  const corePreset = new CorePreset();
 
-  let manager = RemirrorManager.create([dummyExtension, bigExtension, corePreset]);
+  let manager = RemirrorManager.create([dummyExtension, bigExtension, ...corePreset()]);
 
   let view: EditorView;
 
   beforeEach(() => {
-    manager = RemirrorManager.fromObject({
-      extensions: [dummyExtension, bigExtension],
-      presets: [new CorePreset()],
-    });
+    manager = RemirrorManager.create(() => [dummyExtension, bigExtension, ...corePreset()]);
     manager.attachFramework(createFramework(manager), () => {});
     state = manager.createState({ content: EMPTY_PARAGRAPH_NODE });
     view = new EditorView(document.createElement('div'), {
@@ -144,7 +136,7 @@ describe('Manager', () => {
     expect(isRemirrorManager(manager, ['dummy', 'biggest'])).toBeFalse();
     expect(isRemirrorManager(manager, [class A extends DummyExtension {}])).toBeFalse();
     expect(isRemirrorManager(manager)).toBeTrue();
-    expect(isRemirrorManager(manager, [DummyExtension, CorePreset])).toBeTrue();
+    expect(isRemirrorManager(manager, [DummyExtension])).toBeTrue();
     expect(isRemirrorManager(manager, ['dummy', 'big'])).toBeTrue();
   });
 
@@ -206,7 +198,7 @@ test('keymaps', () => {
     new FirstExtension(),
     new SecondExtension(),
     new ThirdExtension(),
-    new CorePreset(),
+    ...corePreset(),
   ]);
   manager.attachFramework(createFramework(manager), () => {});
 
@@ -273,7 +265,7 @@ test('lifecycle', () => {
 
 describe('createEmptyDoc', () => {
   it('can create an empty doc', () => {
-    const manager = RemirrorManager.create([new CorePreset()]);
+    const manager = RemirrorManager.create([...corePreset()]);
 
     expect(manager.createEmptyDoc().toJSON()).toMatchInlineSnapshot(`
     Object {
@@ -289,7 +281,7 @@ describe('createEmptyDoc', () => {
 
   it('creates an empty doc with alternative content', () => {
     const headingManager = RemirrorManager.create([
-      new CorePreset({ content: 'heading+' }),
+      ...corePreset({ content: 'heading+' }),
       new HeadingExtension(),
     ]);
     expect(headingManager.createEmptyDoc()).toMatchInlineSnapshot(`
@@ -345,7 +337,7 @@ test('disposes of methods', () => {
     }
   }
 
-  const manager = RemirrorManager.create(() => [new DisposeExtension(), new CorePreset()]);
+  const manager = RemirrorManager.create(() => [new DisposeExtension(), ...corePreset()]);
   const framework = createFramework(manager);
 
   const view = new EditorView(document.createElement('div'), {

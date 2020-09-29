@@ -27,17 +27,17 @@ pnpm add @remirror/preset-social@next @remirror/pm@next
 npm install @remirror/preset-social@next @remirror/pm@next
 ```
 
-This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/preset/social`.
+This is included by default when you install the recommended `remirror` package. All exports are also available via the entry-point, `remirror/presets`.
 
 <br />
 
 ## Usage
 
-The following creates an instance of the preset.
+The following adds the extensions from this preset to the editor.
 
 ```ts
-import { SocialPreset } from 'remirror/preset/social';
+import { createCoreManager, socialPreset } from 'remirror/presets';
 
-// Create the preset
-const preset = new SocialPreset();
+// Add the preset to the manager.
+const manager = createCoreManager(() => socialPreset());
 ```

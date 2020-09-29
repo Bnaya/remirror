@@ -5,6 +5,7 @@ import { isMarkActive, isNodeActive, isSelectionEmpty } from '@remirror/core-uti
 
 import { extensionDecorator } from '../decorators';
 import {
+  ActiveFromExtensions,
   AnyExtension,
   HelpersFromExtensions,
   isMarkExtension,
@@ -12,7 +13,6 @@ import {
   PlainExtension,
 } from '../extension';
 import { throwIfNameNotUnique } from '../helpers';
-import type { ActiveFromCombined, AnyCombinedUnion, HelpersFromCombined } from '../preset';
 import type { ExtensionHelperReturn } from '../types';
 
 /**
@@ -85,11 +85,11 @@ export class HelpersExtension extends PlainExtension {
 
 declare global {
   namespace Remirror {
-    interface ManagerStore<Combined extends AnyCombinedUnion> {
+    interface ManagerStore<ExtensionUnion extends AnyExtension> {
       /**
        * The helpers provided by the extensions used.
        */
-      helpers: HelpersFromCombined<Combined | Value<AllExtensions>>;
+      helpers: HelpersFromExtensions<ExtensionUnion>;
 
       /**
        * Check which nodes and marks are active under the current user
@@ -101,7 +101,7 @@ declare global {
        * return active.bold() ? 'bold' : 'regular';
        * ```
        */
-      active: ActiveFromCombined<Combined>;
+      active: ActiveFromExtensions<ExtensionUnion>;
     }
 
     interface ExtensionCreatorMethods {

@@ -2,6 +2,7 @@ export * from './attributes-extension';
 export * from './builtin-preset';
 export * from './commands-extension';
 export * from './helpers-extension';
+export * from './html-extension';
 export * from './input-rules-extension';
 export * from './keymap-extension';
 export * from './node-views-extension';

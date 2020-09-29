@@ -162,4 +162,4 @@ cc-reporter
 /tsconfig.json
 /tsconfig.lint.json
 /tsconfig.references.json
-/packages/**/tsconfig.json
+
